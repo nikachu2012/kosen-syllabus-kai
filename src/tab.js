@@ -7,12 +7,12 @@ const tab = {
     create: (button, element) => {
         tab.allClose = () => {
             element.forEach((e,i)=>{
-                e.display = "none";
+                e.classList.add("hidden");
             })
         }
 
         tab.open = (index) => {
-            element[index].display = "block"
+            element[index].classList.remove('hidden')
         }
 
         button.forEach((e, i) => {
@@ -26,4 +26,4 @@ const tab = {
     },
 }
 
-tab.create(document.querySelectorAll('.content'), document.querySelectorAll('.kai_sidebar'))
+tab.create(document.querySelectorAll('.kai_sidebar'), document.querySelectorAll('.content'))
