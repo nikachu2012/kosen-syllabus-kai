@@ -1,0 +1,19 @@
+.tablesorter-header{
+    cursor: pointer;
+}
+
+.tablesorter-headerUnSorted:not(.sorter-false) .tablesorter-header-inner::after{
+    white-space: pre;
+    content: " ↕️";
+}
+
+.sorter-false {
+    cursor: default;
+}
+
+.tablesorter-headerAsc .tablesorter-header-inner::after{
+    content: " ⬆️";
+}
+.tablesorter-headerDesc .tablesorter-header-inner::after{
+    content: " ⬇️";
+}
