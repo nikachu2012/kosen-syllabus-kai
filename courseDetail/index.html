@@ -42,16 +42,29 @@
         <div class="w-full h-full hidden" id="kai_loaded_content">
 
           <div class="m-5">
-            <div class="flex flex-col">
-              <span class="text-sm">教科番号: 2022-541</span>
-              <span class="text-4xl font-bold">物理Ⅰ</span>
-            </div>
-            
-            <hr class="border-neutral-content my-3">
+            <div class="flex justify-between">
+              <div class="flex flex-col">
+                <span class="text-sm">教科番号: 2022-541</span>
+                <span class="text-4xl font-bold">
+                  物理Ⅰ
+                  <span class="badge badge-primary">アクティブラーニング</span>
+                </span>
+              </div>
 
-            <div class="text-xl font-bold">教科基本情報</div>
+              <div class="flex items-end">
+                <div class="tooltip tooltip-left" data-tip="高専Webシラバスで開く">
+                  <a class="btn btn-sm"
+                    href="https://syllabus.kosen-k.go.jp/Pages/PublicSyllabus?school_id=22&department_id=15&subject_code=2022-541&year=2022&lang=ja"
+                    target="_blank">シラバス</a>
+                </div>
+              </div>
+
+            </div>
+
+
+            <hr class="border-base-content my-3">
             <div class="overflow-x-auto">
-              <table class="table table-compact w-full mt-[10px] border-[1px] border-secondary ">
+              <table class="table table-compact w-full border-[1px] border-secondary ">
                 <!-- head -->
                 <tbody>
 
@@ -84,12 +97,13 @@
                     <th>週時間数</th>
                     <td>2</td>
                   </tr>
-                  
+
 
                   <tr>
                     <th>教員</th>
-                    <td colspan="3">住吉 光介,駒 佳明,設楽 恭平</td>
+                    <td colspan="3">住吉 光介, 駒 佳明, 設楽 恭平</td>
                   </tr>
+
                   <tr>
                     <th>教材</th>
                     <td colspan="3">初歩から学ぶ基礎物理学・力学１（大日本図書），力学問題集（大日本図書）。この他に，本校オリジナルの問題集を配布する。</td>
@@ -98,14 +112,139 @@
               </table>
             </div>
 
-            <div class="text-xl font-bold my-[10px]">到達目標</div>
-            <div class="bg-primary w-full h-auto p-2">(1) 物体の運動を数式で表現できる。(2) 運動方程式について理解し，応用できる。(3) さまざまな物理量・保存法則の概念を理解して取り扱うことができる。</div>
+            <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">到達目標</div>
+            <div class="bg-base-300 w-full h-auto p-2">
+              (1) 物体の運動を数式で表現できる。(2) 運動方程式について理解し，応用できる。(3)
+              さまざまな物理量・保存法則の概念を理解して取り扱うことができる。
+            </div>
 
-            <div class="text-xl font-bold my-[10px]">ルーブリック</div>
-            <!-- TODO: rubricを作成 -->
+            <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">ルーブリック</div>
+
+            <div class="overflow-x-auto">
+              <table class="table table-compact table-zebra w-full border-success border">
+                <!-- head -->
+                <thead>
+                  <tr class="[&>*]:bg-success [&>*]:text-success-content">
+                    <th class="rounded-none"></th>
+                    <th class="rounded-none">理想的な到達レベルの目安</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- row 1 -->
+                  <tr>
+                    <th>評価項目1</th>
+                    <td>物体の運動を数式で表現して計算できる。</td>
+                  </tr>
+                  <!-- row 2 -->
+                  <tr>
+                    <th>評価項目2</th>
+                    <td>運動方程式について理解して計算できる。</td>
+                  </tr>
+                  <!-- row 3 -->
+                  <tr>
+                    <th>評価項目3</th>
+                    <td>様々な物理量・保存法則の概念を理解して取り扱うことができる。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="overflow-x-auto mt-[10px]">
+              <table class="table table-compact table-zebra w-full border border-info">
+                <!-- head -->
+                <thead>
+                  <tr class="[&>*]:bg-info [&>*]:text-info-content">
+                    <th class="rounded-none"></th>
+                    <th class="rounded-none">標準的な到達レベルの目安</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- row 1 -->
+                  <tr>
+                    <th>評価項目1</th>
+                    <td>物体の運動を数式で表現できる。</td>
+                  </tr>
+                  <!-- row 2 -->
+                  <tr>
+                    <th>評価項目2</th>
+                    <td>運動方程式について理解している。</td>
+                  </tr>
+                  <!-- row 3 -->
+                  <tr>
+                    <th>評価項目3</th>
+                    <td>基礎的な物理量・保存法則の概念を理解して取り扱うことができる。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="overflow-x-auto mt-[10px]">
+              <table class="table table-compact table-zebra w-full border border-warning">
+                <!-- head -->
+                <thead>
+                  <tr class="[&>*]:bg-warning [&>*]:text-warning-content">
+                    <th class="rounded-none"></th>
+                    <th class="rounded-none">未到達レベルの目安</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- row 1 -->
+                  <tr>
+                    <th>評価項目1</th>
+                    <td>物体の運動を数式で表現できない。</td>
+                  </tr>
+                  <!-- row 2 -->
+                  <tr>
+                    <th>評価項目2</th>
+                    <td>運動方程式について理解していない。</td>
+                  </tr>
+                  <!-- row 3 -->
+                  <tr>
+                    <th>評価項目3</th>
+                    <td>基礎的な物理量・保存法則の概念を理解して取り扱うことができない。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">教育方法等</div>
+
+            <div class="text-lg font-bold my-[5px]">概要</div>
+            <div class="bg-base-300 w-full h-auto p-2">
+              私たちの身の回りに起こる現象を理解し，それを応用してものを作るためには，自然現象の中に潜む法則を理解し整理することが必要である。さまざまな自然法則のうちで最も基本的なものは，力と運動に関するもの，電気や磁気に関するもの，波や光や音に関するもの，熱に関するものなどである。これらを扱うのが物理学である。物理Ⅰでは，広範囲にわたる物理学のうち，力と運動に関する分野…力学という…に絞って学ぶ。力学を最初に学ぶのは，他の分野のすべてにつながる最も重要な分野だからである。
+            </div>
+
+            <div class="text-lg font-bold my-[5px]">授業の進め方・方法</div>
+            <div class="bg-base-300 w-full h-auto p-2">
+              この授業では，力学のさまざまな現象を，数値や数式を用いて表現する方法を学ぶ。これらを学ぶことを通して，論理的かつ合理的なものの考え方を身につけることを目指す。毎回の講義に対応した演習問題集が配布される。これを用いて，講義を聴くことと問題を解く（自学自習する）ことを並行しながら学んでいく。
+            </div>
+
+            <div class="text-lg font-bold my-[5px]">注意点</div>
+            <div class="bg-base-300 w-full h-auto p-2"></div>
+
+
+            <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">学科の到達目標項目との関係</div>
+
+            <!-- 表示 -->
+            <div class="alert shadow-lg">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  class="stroke-success flex-shrink-0 w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <div class="font-bold">【本校学習・教育目標（本科のみ）】 2</div>
+                  <div class="text-sm">自然科学の成果を社会の要請に応えて応用する能力</div>
+                </div>
+              </div>
+            </div>
+            <!-- 表示 -->
+
+
+            <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">授業計画</div>
+            <!-- TODO: 授業計画の作成 -->
           </div>
-          
-          <!-- content -->
         </div>
 
 
