@@ -133,8 +133,8 @@ const LoadToJSON = (data, loaded) => {
         }
     });
 
-    document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURI(loaded);
-    document.querySelector("#sidebar_courseDetail").href = '/courseDetail/?loaded=' + encodeURI(loaded);
-    document.querySelector("#sidebar_mcc").href = '/mcc/?loaded=' + encodeURI(loaded);
-    document.querySelector("#sidebar_curriculumMap").href = '/curriculumMap/?loaded=' + encodeURI(loaded);
+    document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURIComponent(loaded);
+    document.querySelector("#sidebar_courseDetail").href = '/courseDetail/?loaded=' + encodeURIComponent(loaded);
+    document.querySelector("#sidebar_mcc").href = '/mcc/?loaded=' + encodeURIComponent(loaded);
+    document.querySelector("#sidebar_curriculumMap").href = '/curriculumMap/?loaded=' + encodeURIComponent(loaded);
 }
