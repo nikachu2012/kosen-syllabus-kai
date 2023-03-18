@@ -55,7 +55,7 @@ document.querySelector('#kai_modal_fileSelector #kai_input_fileLoader').addEvent
                     loaded: encodeURI(savefileName)
                 }).toString();
 
-                history.pushState(null, "", `?${urlParameter}`);
+                history.replaceState(null, "", `?${urlParameter}`);
 
 
                 LoadToJSON(loadedData, savefileName)
@@ -125,7 +125,7 @@ const LoadToKey = (currentValue) => {
             loaded: encodeURI(currentValue)
         }).toString();
 
-        history.pushState(null, "", `?${urlParameter}`);
+        history.replaceState(null, "", `?${urlParameter}`);
         LoadToJSON(selectJSON, currentValue)
 
     }).catch(function (err) {
