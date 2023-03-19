@@ -51,11 +51,11 @@ document.querySelector('#kai_modal_fileSelector #kai_input_fileLoader').addEvent
                     e.classList.remove('hidden')
                 })
 
-                const urlParameter = new URLSearchParams({
-                    loaded: encodeURI(savefileName)
-                }).toString();
+                const url = new URL(window.location.href);
+                url.searchParams.delete('loaded');
+                url.searchParams.set('loaded', encodeURI(savefileName))
 
-                history.replaceState(null, "", `?${urlParameter}`);
+
 
 
                 LoadToJSON(loadedData, savefileName)
@@ -121,11 +121,9 @@ const LoadToKey = (currentValue) => {
             e.classList.remove('hidden')
         })
 
-        const urlParameter = new URLSearchParams({
-            loaded: encodeURI(currentValue)
-        }).toString();
-
-        history.replaceState(null, "", `?${urlParameter}`);
+        const url = new URL(window.location.href);
+        url.searchParams.delete('loaded');
+        url.searchParams.set('loaded', encodeURI(currentValue))
         LoadToJSON(selectJSON, currentValue)
 
     }).catch(function (err) {
