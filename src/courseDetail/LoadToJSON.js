@@ -3,108 +3,121 @@ const LoadToJSON = (data, loaded) => {
     const params = url.searchParams;
 
     if (params.get('course') !== null) {
-        const courseData = data.courseData[decodeURI(params.get('course'))]
+        if (data.courseData[decodeURI(params.get('course'))] == undefined) {
+            document.querySelector('#kai_loaded_content').innerHTML = `
+            <div class="w-full h-[100dvh] flex flex-col items-center justify-center">
+                <span class="font-bold text-2xl">指定された科目の詳細情報が存在しません。</span>
+                <button class="btn btn-sm mt-[10px]" id="kai_reload">やり直す</button>
+            </div>
+            `
 
-        let characteristics = [];
-        // 授業の属性を生成
-        if (courseData.characteristics.ActiveLearning) {
-            characteristics.push('<span class="badge badge-primary ml-[3px]">アクティブラーニング</span>')
-        }
-        if (courseData.characteristics.AidedByICT) {
-            characteristics.push('<span class="badge badge-primary ml-[3px]">ICT利用</span>')
-        }
-        if (courseData.characteristics.ApplicableForRemoteClass) {
-            characteristics.push('<span class="badge badge-primary ml-[3px]">遠隔授業対応</span>')
-        }
-        if (courseData.characteristics.InstructorProfessionallyExperienced) {
-            characteristics.push('<span class="badge badge-primary ml-[3px]">実務経験のある教員による授業</span>')
-        }
-
-        // PDF生成ページのURL作成
-        const createPDFurl = new URL(courseData.url)
-        createPDFurl.pathname = '/Pages/SyllabusPDF'
-
-        // 週時間数の生成
-        let semester;
-        if (courseData.information.class.semester.first == courseData.information.class.semester.second) {
-            semester = `<tr><th>週時間数</th><td>${courseData.information.class.semester.first}</td></tr>`
+            document.querySelector('#kai_reload').addEventListener('click', () => {
+                document.querySelector('#sidebar_courseDetail').click();
+            })
         }
         else {
-            semester = `<tr><th>週時間数</th><td>${courseData.information.class.semester.first} / ${courseData.information.class.semester.second}</td></tr>`
-        }
+            const courseData = data.courseData[decodeURI(params.get('course'))]
 
-        // ルーブリック
-        const rubricData = courseData.rubric
+            let characteristics = [];
+            // 授業の属性を生成
+            if (courseData.characteristics.ActiveLearning) {
+                characteristics.push('<span class="badge badge-primary ml-[3px]">アクティブラーニング</span>')
+            }
+            if (courseData.characteristics.AidedByICT) {
+                characteristics.push('<span class="badge badge-primary ml-[3px]">ICT利用</span>')
+            }
+            if (courseData.characteristics.ApplicableForRemoteClass) {
+                characteristics.push('<span class="badge badge-primary ml-[3px]">遠隔授業対応</span>')
+            }
+            if (courseData.characteristics.InstructorProfessionallyExperienced) {
+                characteristics.push('<span class="badge badge-primary ml-[3px]">実務経験のある教員による授業</span>')
+            }
 
-        // ルーブリック 理想的
-        let rubricIdeal = [];
-        Object.keys(rubricData).forEach((e, i) => {
-            rubricIdeal.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].ideal}</td></tr>`)
-        })
+            // PDF生成ページのURL作成
+            const createPDFurl = new URL(courseData.url)
+            createPDFurl.pathname = '/Pages/SyllabusPDF'
 
-        // ルーブリック 標準的
-        let rubricStandard = [];
-        Object.keys(rubricData).forEach((e, i) => {
-            rubricStandard.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].standard}</td></tr>`)
-        })
+            // 週時間数の生成
+            let semester;
+            if (courseData.information.class.semester.first == courseData.information.class.semester.second) {
+                semester = `<tr><th>週時間数</th><td>${courseData.information.class.semester.first}</td></tr>`
+            }
+            else {
+                semester = `<tr><th>週時間数</th><td>${courseData.information.class.semester.first} / ${courseData.information.class.semester.second}</td></tr>`
+            }
 
-        // ルーブリック 未到達
-        let rubricUnacceptable = [];
-        Object.keys(rubricData).forEach((e, i) => {
-            rubricUnacceptable.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].unacceptable}</td></tr>`)
-        })
+            // ルーブリック
+            const rubricData = courseData.rubric
 
-        // 学科の到達目標項目との関係
-        const assignData = courseData.assignObjectives
-        let assignObjectives = [];
+            // ルーブリック 理想的
+            let rubricIdeal = [];
+            Object.keys(rubricData).forEach((e, i) => {
+                rubricIdeal.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].ideal}</td></tr>`)
+            })
 
-        assignData.list.forEach((e, i) => {
-            assignObjectives.push(`
+            // ルーブリック 標準的
+            let rubricStandard = [];
+            Object.keys(rubricData).forEach((e, i) => {
+                rubricStandard.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].standard}</td></tr>`)
+            })
+
+            // ルーブリック 未到達
+            let rubricUnacceptable = [];
+            Object.keys(rubricData).forEach((e, i) => {
+                rubricUnacceptable.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].unacceptable}</td></tr>`)
+            })
+
+            // 学科の到達目標項目との関係
+            const assignData = courseData.assignObjectives
+            let assignObjectives = [];
+
+            assignData.list.forEach((e, i) => {
+                assignObjectives.push(`
             <div class="alert shadow-lg"><div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-success flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <div><div class="font-bold">${e}</div><div class="text-sm">${assignData[e]}</div></div>
             </div></div>
             `)
-        })
-
-        // 前期授業計画
-        const planFirstData = courseData.plan.first
-        let planFirst = [];
-
-        planFirstData.forEach((e, i) => {
-            planFirst.push(`<tr><th>${e.week}週</th><td>${e.theme}</td><td>${e.goal}</td></tr>`)
-        })
-
-        // 後期授業計画
-        const planSecondData = courseData.plan.second
-        let planSecond = [];
-
-        planSecondData.forEach((e, i) => {
-            planSecond.push(`<tr><th>${e.week}週</th><td>${e.theme}</td><td>${e.goal}</td></tr>`)
-        })
-
-        // 評価割合
-        const weight = courseData.weight
-        let weightPoint = [];
-
-        weight.point.forEach((e, i) => {
-            weightPoint.push(`<td>${e}</td>`)
-        })
-
-        let weightData = [];
-        weight.contents.forEach((e, i) => {
-            let value = [];
-
-            Object.keys(weight[e]).forEach((e1, i1) => {
-                value.push(`<td>${weight[e][e1]}</td>`)
             })
 
-            weightData.push(`<tr><th>${e}</th>${value.join('')}</tr>`)
-        });
+            // 前期授業計画
+            const planFirstData = courseData.plan.first
+            let planFirst = [];
+
+            planFirstData.forEach((e, i) => {
+                planFirst.push(`<tr><th>${e.week}週</th><td>${e.theme}</td><td>${e.goal}</td></tr>`)
+            })
+
+            // 後期授業計画
+            const planSecondData = courseData.plan.second
+            let planSecond = [];
+
+            planSecondData.forEach((e, i) => {
+                planSecond.push(`<tr><th>${e.week}週</th><td>${e.theme}</td><td>${e.goal}</td></tr>`)
+            })
+
+            // 評価割合
+            const weight = courseData.weight
+            let weightPoint = [];
+
+            weight.point.forEach((e, i) => {
+                weightPoint.push(`<td>${e}</td>`)
+            })
+
+            let weightData = [];
+            weight.contents.forEach((e, i) => {
+                let value = [];
+
+                Object.keys(weight[e]).forEach((e1, i1) => {
+                    value.push(`<td>${weight[e][e1]}</td>`)
+                })
+
+                weightData.push(`<tr><th>${e}</th>${value.join('')}</tr>`)
+            });
 
 
 
-        document.querySelector('#kai_loaded_content').innerHTML = `
+            document.querySelector('#kai_loaded_content').innerHTML = `
             <style>
                 .table :where(th, td){
                     white-space: normal;
@@ -219,10 +232,10 @@ const LoadToJSON = (data, loaded) => {
             <div class="overflow-y-auto">${courseData.mccHTML}</div>
         `
 
-        document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.remove(...document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList)
-        document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.add('table', 'table-compact', 'w-full')
-        document.querySelector('#MainContent_SubjectSyllabus_mccTable').removeAttribute('style')
-
+            document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.remove(...document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList)
+            document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.add('table', 'table-compact', 'w-full')
+            document.querySelector('#MainContent_SubjectSyllabus_mccTable').removeAttribute('style')
+        }
     }
     else {
         // 科目リストの生成
@@ -255,6 +268,7 @@ const LoadToJSON = (data, loaded) => {
     }
     document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURIComponent(loaded);
     document.querySelector("#sidebar_courseDetail").href = '/courseDetail/?loaded=' + encodeURIComponent(loaded);
+    document.querySelector("#sidebar_teacher").href = '/teacher/?loaded=' + encodeURIComponent(loaded);
     document.querySelector("#sidebar_mcc").href = '/mcc/?loaded=' + encodeURIComponent(loaded);
     document.querySelector("#sidebar_curriculumMap").href = '/curriculumMap/?loaded=' + encodeURIComponent(loaded);
 }
