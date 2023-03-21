@@ -232,7 +232,7 @@ const LoadToJSON = (data, loaded) => {
             courseList.push(`<option value="${e.code}">${e.title} (${e.code})</option>`)
         })
         document.querySelector('#kai_loaded_content').innerHTML = `
-        <div class="w-full h-[100dvh] flex flex-col items-center justify-center">
+        <div class="w-full h-[calc(100dvh_-_64px)] md:h-[100dvh] flex flex-col items-center justify-center">
             <span class="font-bold text-2xl">科目のデータを選択してください</span>
             <select id="selector" class="select select-bordered w-full max-w-xs mt-[5px]">
                 <option disabled selected>未指定</option>
