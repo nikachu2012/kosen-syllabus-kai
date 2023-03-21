@@ -117,13 +117,8 @@ const LoadToKey = (currentValue) => {
     localforage.getItem(currentValue).then(function (value) {
         const selectJSON = JSON.parse(value)
 
-        document.querySelectorAll('#kai_nonLoad_content').forEach((e, i) => {
-            e.classList.add('hidden')
-        })
-
-        document.querySelectorAll('#kai_loaded_content').forEach((e, i) => {
-            e.classList.remove('hidden')
-        })
+        document.querySelector('#kai_nonLoad_content').classList.add('hidden')
+        document.querySelector('#kai_loaded_content').classList.remove('hidden')
 
         const url = new URL(window.location.href);
         url.searchParams.delete('loaded');
