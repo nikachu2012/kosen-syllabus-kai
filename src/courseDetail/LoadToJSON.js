@@ -48,6 +48,13 @@ const LoadToJSON = (data, loaded) => {
             else {
                 semester = `<tr><th>週時間数</th><td>${courseData.information.class.semester.first} / ${courseData.information.class.semester.second}</td></tr>`
             }
+            
+
+            // 教員リストの生成
+            let teacherList = []
+            courseData.information.instructor.list.forEach((e, i) => {
+                teacherList.push(`<a class="link underline-offset-4" href="/teacher/?teacher=${encodeURIComponent(e)}&loaded=${encodeURIComponent(loaded)}">${e}</a>`)
+            })
 
             // ルーブリック
             const rubricData = courseData.rubric
@@ -152,7 +159,7 @@ const LoadToJSON = (data, loaded) => {
                 <tr><th>単位数</th><td>${courseData.information.credit.count}</td></tr>
                 <tr><th>開設期</th><td>${courseData.information.class.semester.text}</td></tr>
                 ${semester}
-                <tr><th>教員</th><td colspan="3">${courseData.information.instructor.all}</td></tr>
+                <tr><th>教員</th><td colspan="3">${teacherList.join(',&nbsp;')}</td></tr>
                 <tr><th>教材</th><td>${courseData.information.textbook.all}</td></tr>
             </tbody></table></div>
 
