@@ -39,7 +39,10 @@ const LoadToJSON = (data, loaded) => {
 
             // 週時間数の生成
             let semester;
-            if (courseData.information.class.semester.first == courseData.information.class.semester.second) {
+            if(courseData.information.class.semester.concentration){
+                semester = `<tr><th>週時間数</th><td>集中講義</td></tr>`
+            }
+            else if (courseData.information.class.semester.first == courseData.information.class.semester.second) {
                 semester = `<tr><th>週時間数</th><td>${courseData.information.class.semester.first}</td></tr>`
             }
             else {
@@ -269,6 +272,5 @@ const LoadToJSON = (data, loaded) => {
     document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURIComponent(loaded);
     document.querySelector("#sidebar_courseDetail").href = '/courseDetail/?loaded=' + encodeURIComponent(loaded);
     document.querySelector("#sidebar_teacher").href = '/teacher/?loaded=' + encodeURIComponent(loaded);
-    document.querySelector("#sidebar_mcc").href = '/mcc/?loaded=' + encodeURIComponent(loaded);
-    document.querySelector("#sidebar_curriculumMap").href = '/curriculumMap/?loaded=' + encodeURIComponent(loaded);
+    document.querySelector('#sidebar_officialSyllabus').href = data.url;
 }
