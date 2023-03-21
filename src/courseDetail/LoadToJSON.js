@@ -225,20 +225,33 @@ const LoadToJSON = (data, loaded) => {
 
     }
     else {
-        /*
+        // 科目リストの生成
+        let courseList = [];
+
+        data.course.forEach((e, i) => {
+            courseList.push(`<option value="${e.code}">${e.title} (${e.code})</option>`)
+        })
         document.querySelector('#kai_loaded_content').innerHTML = `
-        <div class="w-full h-[32px] my-[10px] relative">
-            <div class="absolute left-0 text-2xl font-bold ml-5">科目詳細情報</div>
-            <div class="absolute right-0 mr-5">
-                <!-- right -->
-            </div>
-        </div>
-        <div class="w-full h-[calc(100dvh_-_52px)] flex flex-col items-center justify-center">
+        <div class="w-full h-[100dvh] flex flex-col items-center justify-center">
             <span class="font-bold text-2xl">科目のデータを選択してください</span>
-            <span></span>
+            <select id="selector" class="select select-bordered w-full max-w-xs mt-[5px]">
+                <option disabled selected>未指定</option>
+                ${courseList.join('')}
+            </select>
         </div>
         `
-        */
+
+        document.querySelector('#selector').addEventListener('change', (event) => {
+            const selectValue = event.currentTarget.value;
+            console.log(selectValue)
+
+            const url = new URL(window.location.href);
+            url.searchParams.delete('course');
+            url.searchParams.set('course', encodeURI(selectValue))
+
+            history.replaceState(null, null, url.search);
+            location.reload();
+        })
     }
     document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURI(loaded);
     document.querySelector("#sidebar_courseDetail").href = '/courseDetail/?loaded=' + encodeURI(loaded);
