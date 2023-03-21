@@ -58,10 +58,11 @@ const LoadToJSON = (data, loaded) => {
 
         const detail = document.createElement('td')
 
-        const detailButton = document.createElement('button')
+        const detailButton = document.createElement('a')
         detailButton.classList.add("btn", "btn-xs")
         detailButton.textContent = "詳細"
         detailButton.title = "シラバス改の詳細ページで見る"
+        detailButton.href = `/courseDetail/?course=${element.code}&loaded=${encodeURIComponent(loaded)}`
         detail.appendChild(detailButton)
 
         const realSyllabusButton = document.createElement('a')
