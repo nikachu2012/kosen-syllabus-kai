@@ -55,6 +55,10 @@ document.querySelector('#kai_modal_fileSelector #kai_input_fileLoader').addEvent
                 url.searchParams.delete('loaded');
                 url.searchParams.set('loaded', encodeURI(savefileName))
 
+                history.replaceState(null, null, url.search);
+
+                location.reload()
+
 
 
 
@@ -124,6 +128,10 @@ const LoadToKey = (currentValue) => {
         const url = new URL(window.location.href);
         url.searchParams.delete('loaded');
         url.searchParams.set('loaded', encodeURI(currentValue))
+
+        history.replaceState(null, null, url.search);
+
+            
         LoadToJSON(selectJSON, currentValue)
 
     }).catch(function (err) {
