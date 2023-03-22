@@ -62,19 +62,19 @@ const LoadToJSON = (data, loaded) => {
             // ルーブリック 理想的
             let rubricIdeal = [];
             Object.keys(rubricData).forEach((e, i) => {
-                rubricIdeal.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].ideal}</td></tr>`)
+                rubricIdeal.push(`<tr><th class="max-w-sm break-all">${e.replace(/(?:\n)+/g, '<br>')}</th><td>${rubricData[e].ideal.replace(/(?:\n)+/g, '<br>')}</td></tr>`)
             })
 
             // ルーブリック 標準的
             let rubricStandard = [];
             Object.keys(rubricData).forEach((e, i) => {
-                rubricStandard.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].standard}</td></tr>`)
+                rubricStandard.push(`<tr><th class="max-w-sm break-all">${e.replace(/(?:\n)+/g, '<br>')}</th><td>${rubricData[e].standard.replace(/(?:\n)+/g, '<br>')}</td></tr>`)
             })
 
             // ルーブリック 未到達
             let rubricUnacceptable = [];
             Object.keys(rubricData).forEach((e, i) => {
-                rubricUnacceptable.push(`<tr><th class="max-w-sm break-all">${e}</th><td>${rubricData[e].unacceptable}</td></tr>`)
+                rubricUnacceptable.push(`<tr><th class="max-w-sm break-all">${e.replace(/(?:\n)+/g, '<br>')}</th><td>${rubricData[e].unacceptable.replace(/(?:\n)+/g, '<br>')}</td></tr>`)
             })
 
             // 学科の到達目標項目との関係
@@ -95,7 +95,7 @@ const LoadToJSON = (data, loaded) => {
             let planFirst = [];
 
             planFirstData.forEach((e, i) => {
-                planFirst.push(`<tr><th>${e.week}週</th><td>${e.theme}</td><td>${e.goal}</td></tr>`)
+                planFirst.push(`<tr><th>${e.week}週</th><td>${e.theme.replace(/(?:\n)+/g, '<br>')}</td><td>${e.goal.replace(/(?:\n)+/g, '<br>')}</td></tr>`)
             })
 
             // 後期授業計画
@@ -103,7 +103,7 @@ const LoadToJSON = (data, loaded) => {
             let planSecond = [];
 
             planSecondData.forEach((e, i) => {
-                planSecond.push(`<tr><th>${e.week}週</th><td>${e.theme}</td><td>${e.goal}</td></tr>`)
+                planSecond.push(`<tr><th>${e.week}週</th><td>${e.theme.replace(/(?:\n)+/g, '<br>')}</td><td>${e.goal.replace(/(?:\n)+/g, '<br>')}</td></tr>`)
             })
 
             // 評価割合
@@ -164,7 +164,7 @@ const LoadToJSON = (data, loaded) => {
             </tbody></table></div>
 
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">到達目標</div>
-            <div class="bg-base-300 w-full h-auto p-2">${courseData.objectives}</div>
+            <div class="bg-base-300 w-full h-auto p-2">${courseData.objectives.replace(/(?:\n)+/g, '<br>')}</div>
 
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">ルーブリック</div>
             <div class="overflow-x-auto">
@@ -205,11 +205,11 @@ const LoadToJSON = (data, loaded) => {
 
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">教育方法等</div>
             <div class="text-lg font-bold my-[5px]">概要</div>
-            <div class="bg-base-300 w-full h-auto p-2">${courseData.method.outline}</div>
+            <div class="bg-base-300 w-full h-auto p-2">${courseData.method.outline.replace(/(?:\n)+/g, '<br>')}</div>
             <div class="text-lg font-bold my-[5px]">授業の進め方・方法</div>
-            <div class="bg-base-300 w-full h-auto p-2">${courseData.method.style}</div>
+            <div class="bg-base-300 w-full h-auto p-2">${courseData.method.style.replace(/(?:\n)+/g, '<br>')}</div>
             <div class="text-lg font-bold my-[5px]">注意点</div>
-            <div class="bg-base-300 w-full h-auto p-2">${courseData.method.notice}</div>
+            <div class="bg-base-300 w-full h-auto p-2">${courseData.method.notice.replace(/(?:\n)+/g, '<br>')}</div>
 
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">学科の到達目標項目との関係</div>
             ${assignObjectives.join('')}
