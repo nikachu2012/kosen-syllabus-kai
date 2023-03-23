@@ -73,6 +73,7 @@ const LoadToJSON = (data, loaded) => {
 
             // ルーブリック 未到達
             let rubricUnacceptable = [];
+            
             Object.keys(rubricData).forEach((e, i) => {
                 rubricUnacceptable.push(`<tr><th class="max-w-sm break-all">${e.replace(/(?:\n)+/g, '<br>')}</th><td>${rubricData[e].unacceptable.replace(/(?:\n)+/g, '<br>')}</td></tr>`)
             })
@@ -125,7 +126,19 @@ const LoadToJSON = (data, loaded) => {
                 weightData.push(`<tr><th>${e}</th>${value.join('')}</tr>`)
             });
 
-
+            let unacceptableColorBackground;
+            let unacceptableColorContent;
+            let unacceptableColorBorder;
+            if(Setting.appearance.unacceptableIsRed){
+                unacceptableColorBackground = "bg-error"
+                unacceptableColorContent = "text-error-content"
+                unacceptableColorBorder = "border-error"
+            }
+            else{
+                unacceptableColorBackground = "bg-warning"
+                unacceptableColorContent = "text-warning-content"
+                unacceptableColorBorder = "border-warning"
+            }
 
             document.querySelector('#kai_loaded_content').innerHTML = `
             <style>
@@ -192,8 +205,8 @@ const LoadToJSON = (data, loaded) => {
             </div>
 
             <div class="overflow-x-auto mt-[10px]">
-                <table class="table table-compact table-zebra w-full border border-warning">
-                    <thead><tr class="[&>*]:bg-warning [&>*]:text-warning-content">
+                <table class="table table-compact table-zebra w-full border ${unacceptableColorBorder}">
+                    <thead><tr class="[&>*]:${unacceptableColorBackground} [&>*]:${unacceptableColorContent}">
                         <th class="rounded-none"></th>
                         <td class="rounded-none">未到達レベルの目安</th>
                     </tr></thead>
@@ -233,7 +246,7 @@ const LoadToJSON = (data, loaded) => {
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">評価割合</div>
             <div class="overflow-x-auto">
                 <table class="table table-compact table-zebra w-full">
-                    <thead><tr><th></th>${weightPoint.join('')}</tr></thead>
+                    <thead><tr class="[&>*]:bg-base-300"><th></th>${weightPoint.join('')}</tr></thead>
                     <tbody>${weightData.join('')}</tbody>
                 </table>
             </div>
@@ -244,6 +257,7 @@ const LoadToJSON = (data, loaded) => {
 
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.remove(...document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList)
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.add('table', 'table-compact', 'w-full')
+            document.querySelector('#MainContent_SubjectSyllabus_mccTable tbody tr').classList.replace('bg-success','[&>*]:bg-base-300')
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').removeAttribute('style')
         }
     }
