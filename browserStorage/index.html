@@ -40,7 +40,26 @@
                     </div>
                 </div>
 
-                <div class="w-full h-full hidden" id="kai_loaded_content"></div>
+                <div class="w-full h-full hidden" id="kai_loaded_content">
+                    <div class="w-full flex justify-between my-[10px]">
+                        <div class="text-2xl font-bold ml-5">ブラウザ内ストレージ管理</div>
+                        <div class="mr-5">
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto px-5">
+                        <table class="table w-full h-full">
+                            <thead>
+                                <tr class="[&>*]:normal-case">
+                                    <th></th>
+                                    <th>ファイル名</th>
+                                    <th>アクション</th>
+                                </tr>
+                            </thead>
+                            <tbody id="kai_table_fileName">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>
