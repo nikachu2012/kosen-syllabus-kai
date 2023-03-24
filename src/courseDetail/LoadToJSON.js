@@ -230,7 +230,7 @@ const LoadToJSON = (data, loaded) => {
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">授業計画 (前期)</div>
             <div class="overflow-x-auto">
                 <table class="table table-compact table-zebra w-full">
-                    <thead><tr class="[&>*]:bg-base-300"><th>週</th><th>授業内容</th><th>週ごとの到達目標</th></tr></thead>
+                    <thead><tr class="[&>*]:bg-base-300 [&>*]:normal-case"><th>週</th><th>授業内容</th><th>週ごとの到達目標</th></tr></thead>
                     <tbody>${planFirst.join('')}</tbody>
                 </table>
             </div>
@@ -238,7 +238,7 @@ const LoadToJSON = (data, loaded) => {
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">授業計画 (後期)</div>
             <div class="overflow-x-auto">
                 <table class="table table-compact table-zebra w-full">
-                    <thead><tr class="[&>*]:bg-base-300"><th>週</th><th>授業内容</th><th>週ごとの到達目標</th></tr></thead>
+                    <thead><tr class="[&>*]:bg-base-300 [&>*]:normal-case"><th>週</th><th>授業内容</th><th>週ごとの到達目標</th></tr></thead>
                     <tbody>${planSecond.join('')}</tbody>
                 </table>
             </div>
@@ -246,7 +246,7 @@ const LoadToJSON = (data, loaded) => {
             <div class="text-xl font-bold mt-5 mb-[10px] pb-1 border-b border-neutral">評価割合</div>
             <div class="overflow-x-auto">
                 <table class="table table-compact table-zebra w-full">
-                    <thead><tr class="[&>*]:bg-base-300"><th></th>${weightPoint.join('')}</tr></thead>
+                    <thead><tr class="[&>*]:bg-base-300 [&>*]:normal-case"><th></th>${weightPoint.join('')}</tr></thead>
                     <tbody>${weightData.join('')}</tbody>
                 </table>
             </div>
@@ -257,7 +257,7 @@ const LoadToJSON = (data, loaded) => {
 
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.remove(...document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList)
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.add('table', 'table-compact', 'w-full')
-            document.querySelector('#MainContent_SubjectSyllabus_mccTable tbody tr').classList.replace('bg-success','[&>*]:bg-base-300')
+            document.querySelector('#MainContent_SubjectSyllabus_mccTable tbody tr').classList.replace('bg-success','[&>*]:bg-base-300', "[&>*]:normal-case")
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').removeAttribute('style')
         }
     }
