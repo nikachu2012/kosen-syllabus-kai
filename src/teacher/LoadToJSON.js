@@ -129,7 +129,7 @@ const LoadToJSON = (data, loaded) => {
                     </div>
 
                     <div class="flex justify-end mt-[10px] md:items-end md:mt-0 md:[justify-content:normal]">
-                        <div class="tooltip tooltip-left" data-tip="researchmapで開く"><a class="btn btn-sm" href="${teacherData.url}" target="_blank">researchmapで開く</a></div>
+                        <div class="tooltip tooltip-left" data-tip="researchmapで開く"><a class="btn btn-sm normal-case" href="${teacherData.url}" target="_blank">researchmapで開く</a></div>
                     </div>
                 </div>
 
