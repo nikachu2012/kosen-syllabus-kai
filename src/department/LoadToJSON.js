@@ -83,7 +83,7 @@ const LoadToJSON = (data, loaded) => {
         filters: {
             1: {
                 append: {
-                    template: `<input type="text" placeholder="ここで検索" class="input input-bordered w-full mt-[5px]">`,
+                    template: `<input type="text" placeholder="ここで検索" class="input input-sm input-bordered w-full mt-[5px]">`,
                     to: "#kai_modal_department_filter_nameInput",
                     type: 'text'
                 }
@@ -93,7 +93,7 @@ const LoadToJSON = (data, loaded) => {
                     blankLabel: "全て",
                     to: "#kai_modal_department_filter_category_type",
                     type: 'radio',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio"></label></div>`
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio radio-sm"></label></div>`
                 },
             },
             3: {
@@ -101,7 +101,7 @@ const LoadToJSON = (data, loaded) => {
                     blankLabel: "全て",
                     to: "#kai_modal_department_filter_category_take",
                     type: 'radio',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio"></label></div>`
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio radio-sm"></label></div>`
                 },
             },
             4: {
@@ -109,7 +109,7 @@ const LoadToJSON = (data, loaded) => {
                     blankLabel: "全て",
                     to: "#kai_modal_department_filter_credit",
                     type: 'radio',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio"></label></div>`
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio radio-sm"></label></div>`
                 },
             },
             6: {
