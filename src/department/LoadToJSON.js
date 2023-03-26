@@ -92,21 +92,21 @@ const LoadToJSON = (data, loaded) => {
                 append: {
                     to: "#kai_modal_department_filter_category_type",
                     type: 'checkbox',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" checked class="checkbox checkbox-sm"></label></div>`
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" class="checkbox checkbox-sm"></label></div>`
                 },
             },
             3: {
                 append: {
                     to: "#kai_modal_department_filter_category_take",
                     type: 'checkbox',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" checked class="checkbox checkbox-sm"></label></div>`
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" class="checkbox checkbox-sm"></label></div>`
                 },
             },
             4: {
                 append: {
                     to: "#kai_modal_department_filter_credit",
                     type: 'checkbox',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" checked class="checkbox checkbox-sm"></label></div>`
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" class="checkbox checkbox-sm"></label></div>`
                 },
             },
             6: {
