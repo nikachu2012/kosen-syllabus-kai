@@ -1,4 +1,3 @@
-import localforage, { key } from "localforage"
 let loadedData = {}
 
 const modalClose = () => {
