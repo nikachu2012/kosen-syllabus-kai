@@ -90,26 +90,23 @@ const LoadToJSON = (data, loaded) => {
             },
             2: {
                 append: {
-                    blankLabel: "全て",
                     to: "#kai_modal_department_filter_category_type",
-                    type: 'radio',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio radio-sm"></label></div>`
+                    type: 'checkbox',
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" checked class="checkbox checkbox-sm"></label></div>`
                 },
             },
             3: {
                 append: {
-                    blankLabel: "全て",
                     to: "#kai_modal_department_filter_category_take",
-                    type: 'radio',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio radio-sm"></label></div>`
+                    type: 'checkbox',
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" checked class="checkbox checkbox-sm"></label></div>`
                 },
             },
             4: {
                 append: {
-                    blankLabel: "全て",
                     to: "#kai_modal_department_filter_credit",
-                    type: 'radio',
-                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span> <input type="radio"class="radio radio-sm"></label></div>`
+                    type: 'checkbox',
+                    template: `<div class="form-control"><label class="label cursor-pointer"><span class="label-text">{label}</span><input type="checkbox" checked class="checkbox checkbox-sm"></label></div>`
                 },
             },
             6: {
