@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="../src/font.css">
     <link rel="stylesheet" href="../src/table/table.css">
     <title>高専シラバス改</title>
+    <meta property="og:title" content="高専シラバス改">
+    <meta property="og:description" content="高専のシラバスをもっと使いやすくしたものです。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://syllabus.nikachu.net/ogp.png">
+    <meta property="og:url" content="https://syllabus.nikachu.net/">
+    <meta property="og:image" content="https://syllabus.nikachu.net/">
+    <meta property="og:site_name" content="高専シラバス改">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nikachu2012">
 </head>
 
 <body>
@@ -57,7 +67,8 @@
                         <div class="w-full flex justify-between py-[8px] px-[4px]">
                             <div class="text-sm flex items-center">テーマ</div>
                             <div>
-                                <select class="select select-bordered select-sm w-full max-w-xs" id="kai_setting_colors" onchange="changeTheme();">
+                                <select class="select select-bordered select-sm w-full max-w-xs" id="kai_setting_colors"
+                                    onchange="changeTheme();">
                                     <option selected>black</option>
                                     <option value="light">light</option>
                                     <option value="dark">dark</option>
@@ -162,8 +173,8 @@
             </div>
         </label>
     </label>
-    
-        <script src="../src/localforage.min.js"></script>
+
+    <script src="../src/localforage.min.js"></script>
     <script src="../src/LoadSetting.js"></script>
     <script src="../src/setting/LoadToJSON.js"></script>
     <script src="../src/setting/init.js"></script>
