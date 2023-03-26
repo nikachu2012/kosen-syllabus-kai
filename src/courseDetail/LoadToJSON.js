@@ -130,13 +130,13 @@ const LoadToJSON = (data, loaded) => {
             let unacceptableColorContent;
             let unacceptableColorBorder;
             if(Setting.appearance.unacceptableIsRed){
-                unacceptableColorBackground = "bg-error"
-                unacceptableColorContent = "text-error-content"
+                unacceptableColorBackground = "[&>*]:bg-error"
+                unacceptableColorContent = "[&>*]:text-error-content"
                 unacceptableColorBorder = "border-error"
             }
             else{
-                unacceptableColorBackground = "bg-warning"
-                unacceptableColorContent = "text-warning-content"
+                unacceptableColorBackground = "[&>*]:bg-warning"
+                unacceptableColorContent = "[&>*]:text-warning-content"
                 unacceptableColorBorder = "border-warning"
             }
 
@@ -206,7 +206,7 @@ const LoadToJSON = (data, loaded) => {
 
             <div class="overflow-x-auto mt-[10px]">
                 <table class="table table-compact table-zebra w-full border ${unacceptableColorBorder}">
-                    <thead><tr class="[&>*]:${unacceptableColorBackground} [&>*]:${unacceptableColorContent}">
+                    <thead><tr class="${unacceptableColorBackground} ${unacceptableColorContent}">
                         <th class="rounded-none"></th>
                         <td class="rounded-none">未到達レベルの目安</th>
                     </tr></thead>
