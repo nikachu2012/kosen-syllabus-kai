@@ -259,6 +259,7 @@ const LoadToJSON = (data, loaded) => {
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').classList.add('table', 'table-compact', 'w-full')
             document.querySelector('#MainContent_SubjectSyllabus_mccTable tbody tr').classList.replace('bg-success','[&>*]:bg-base-300', "[&>*]:normal-case")
             document.querySelector('#MainContent_SubjectSyllabus_mccTable').removeAttribute('style')
+            document.title = `${courseData.information.title} (${courseData.information.code}) - 高専シラバス改`;
         }
     }
     else {
@@ -289,6 +290,8 @@ const LoadToJSON = (data, loaded) => {
             history.replaceState(null, null, url.search);
             location.reload();
         })
+
+        document.title = `科目詳細情報 - 高専シラバス改`
     }
     document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURIComponent(loaded);
     document.querySelector("#sidebar_courseDetail").href = '/courseDetail/?loaded=' + encodeURIComponent(loaded);

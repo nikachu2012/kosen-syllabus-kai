@@ -145,6 +145,7 @@ const LoadToJSON = (data, loaded) => {
                 ${fifthGrade.join('')}
             </div>
             `
+            document.title = `${teacherData.name} - 高専シラバス改`
         }
     }
     else {
@@ -176,6 +177,8 @@ const LoadToJSON = (data, loaded) => {
             history.replaceState(null, null, url.search);
             location.reload();
         })
+
+        document.title = `教員情報 - 高専シラバス改`
     }
 
     document.querySelector("#sidebar_department").href = '/?loaded=' + encodeURIComponent(loaded);
