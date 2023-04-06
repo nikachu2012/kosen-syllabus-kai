@@ -171,6 +171,7 @@ const LoadToJSON = (data, loaded) => {
                 <tr><th>単位の種別</th><td>${courseData.information.credit.text}</td></tr>
                 <tr><th>単位数</th><td>${courseData.information.credit.count}</td></tr>
                 <tr><th>開設期</th><td>${courseData.information.class.semester.text}</td></tr>
+                <tr><th>対象学年</th><td>${courseData.information.class.grade}</td></tr>
                 ${semester}
                 <tr><th>教員</th><td colspan="3">${teacherList.join(',&nbsp;')}</td></tr>
                 <tr><th>教材</th><td>${courseData.information.textbook.all}</td></tr>
