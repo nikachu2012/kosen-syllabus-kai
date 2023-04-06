@@ -165,7 +165,7 @@ const LoadToJSON = (data, loaded) => {
 
 
             <hr class="border-base-content my-3">
-            <div class="overflow-x-auto"><table class="table table-compact w-full border-[1px] border-secondary"><tbody>
+            <div class="overflow-x-auto"><table class="table table-zebra table-compact w-full border-[1px] border-secondary"><tbody>
                 <tr><th>授業形態</th><td>${courseData.information.format}</td></tr>
                 <tr><th>科目区分</th><td>${courseData.information.category.typeText} / ${courseData.information.category.takeText}</td></tr>
                 <tr><th>単位の種別</th><td>${courseData.information.credit.text}</td></tr>
